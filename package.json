@@ -1,36 +1,20 @@
 {
-  "name": "@itsobvioustech/aa-passkeys-wallet",
-  "version": "0.0.3",
-  "description": "",
-  "main": "./build/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
+  "name": "base-ecosystem-starter",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "typechain": "typechain --target=ethers-v5 --out-dir typechain-types ./out/**/*.json",
-    "build": "tsc index.ts -d true -t es6 -m es6 --moduleResolution node --outDir ./build"
+    "build": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:greeter:sepolia": "hardhat run scripts/deploy_greeter.ts --network baseSepolia",
+    "deploy:counter:sepolia": "hardhat run scripts/deploy_counter.ts --network baseSepolia",
+    "verify": "ts-node scripts/verify.ts"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "@typechain/ethers-v5": "^10.2.0",
-    "@types/elliptic": "^6.4.14",
-    "ethers": "^5.7.2",
-    "ts-node": "^10.9.1",
-    "typechain": "^8.1.1"
-  },
-  "dependencies": {
-    "@account-abstraction/sdk": "^0.5.0",
-    "@passwordless-id/webauthn": "^1.2.0",
-    "@peculiar/asn1-ecc": "^2.3.4",
-    "@peculiar/asn1-schema": "^2.3.3",
-    "base64url": "^3.0.1",
-    "elliptic": "^6.5.4",
-    "typescript": "^4.9.5"
-  },
-  "publishConfig": {
-    "@itsobvioustech:registry": "https://npm.pkg.github.com"
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
   }
 }
